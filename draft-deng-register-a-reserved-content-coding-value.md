@@ -19,8 +19,8 @@
 # Change the file extension to match the format (.xml for XML, etc...)
 #
 ###
-title: "TODO - Your title"
-abbrev: "TODO - Abbreviation"
+title: "Register a new reserved content coding value"
+
 category: info
 
 docname: draft-todo-yourname-protocol-latest
