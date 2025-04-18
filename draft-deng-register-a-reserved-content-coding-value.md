@@ -1,7 +1,7 @@
 ---
 title: "Register a new reserved content coding value"
 
-category: info
+category: std
 
 docname: draft-deng-register-a-reserved-content-coding-value-latest
 submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
@@ -26,8 +26,8 @@ venue:
 author:
  -
     fullname: "Guohui Deng"
-    organization: Your Organization Here
-    email: "guohuideng@outlook.com"
+    organization: Microsoft
+    email: "guohuideng@microsoft.com"
 
 normative:
 
@@ -36,15 +36,30 @@ informative:
 
 --- abstract
 
-TODO Abstract
-
+This document proposes a new reserved value `unknown` for the HTTP protocol parameter
+`content coding`. With this value reserved, when UA(user agent) doesn't recognize
+or suppoprt a `content encoding` value from a http response, it exposes `unknown`
+`content encoding` value in `PerformanceResourceTiming` API.
 
 --- middle
 
 # Introduction
 
-TODO Introduction
+A new field `contentEncoding` is [proposed](https://github.com/whatwg/fetch/pull/1796)
+to be added to [PerformanceResourceTiming](https://www.w3.org/TR/resource-timing/).
+The value of this field explicitly exposes the `content encoding` value in the http
+response that delivered the resource.  This value is beneficial to web sites' and
+CDNs' content delivery optimization, analytics and debugging.
 
+To ensure that the `contentEncoding` in `PerformanceResourceTiming` doesn't become a side
+channel, all arbitary values that are not recognized or supported are converted to
+`unknown` before exposed in `PerformanceResourceTiming`. This conversion requires that the
+original value cannot be `unknown`.
+
+# Proposal
+
+Register a new reserved value `unknown` for HPPT parameter `content coding`. `content coding`
+value cannot be `unknown`.
 
 # Conventions and Definitions
 
@@ -53,17 +68,16 @@ TODO Introduction
 
 # Security Considerations
 
-TODO Security
-
+No security concerns.
 
 # IANA Considerations
 
-This document has no IANA actions.
-
+IANA maintains a [HTTP Content Coding Registry](https://www.iana.org/assignments/http-parameters/http-parameters.xhtml).
+If this proposal becomes a standard, a new reserved value `unknown` will be added to the registry.
 
 --- back
 
 # Acknowledgments
 {:numbered="false"}
 
-TODO acknowledge.
+Many thanks to Noam Rosenthal, Yoav Weiss, Patrick Meenan, Anne van Kesteren, Nic Jansma, and Lucas Pardue for the discussion and guidance.
