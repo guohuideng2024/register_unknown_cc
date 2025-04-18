@@ -2,34 +2,35 @@
 
 
 
-WG Working Group                                              Y. N. Here
-Internet-Draft                                    Your Organization Here
-Intended status: Informational                             17 April 2025
-Expires: 19 October 2025
+Network Working Group                                            G. Deng
+Internet-Draft                                                 Microsoft
+Intended status: Standards Track                           18 April 2025
+Expires: 20 October 2025
 
 
               Register a new reserved content coding value
-                  draft-todo-yourname-protocol-latest
+       draft-deng-register-a-reserved-content-coding-value-latest
 
 Abstract
 
-   TODO Abstract
+   This document proposes a new reserved value unknown for the HTTP
+   protocol parameter content coding.  With this value reserved, when
+   UA(user agent) doesn't recognize or suppoprt a content encoding value
+   from a http response, it exposes unknown content encoding value in
+   PerformanceResourceTiming API.
 
 About This Document
 
    This note is to be removed before publishing as an RFC.
 
    The latest revision of this draft can be found at
-   https://example.com/LATEST.  Status information for this document may
-   be found at https://datatracker.ietf.org/doc/draft-todo-yourname-
-   protocol/.
-
-   Discussion of this document takes place on the WG Working Group
-   mailing list (mailto:WG@example.com), which is archived at
-   https://example.com/WG.
+   https://guohuideng2024.github.io/register_unknown_cc/draft-deng-
+   register-a-reserved-content-coding-value.html.  Status information
+   for this document may be found at https://datatracker.ietf.org/doc/
+   draft-deng-register-a-reserved-content-coding-value/.
 
    Source for this draft and an issue tracker can be found at
-   https://github.com/USER/REPO.
+   https://github.com/guohuideng2024/register_unknown_cc.
 
 Status of This Memo
 
@@ -46,7 +47,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 19 October 2025.
+   This Internet-Draft will expire on 20 October 2025.
 
 Copyright Notice
 
@@ -65,18 +66,36 @@ Copyright Notice
 Table of Contents
 
    1.  Introduction
-   2.  Conventions and Definitions
-   3.  Security Considerations
-   4.  IANA Considerations
-   5.  Normative References
+   2.  Proposal
+   3.  Conventions and Definitions
+   4.  Security Considerations
+   5.  IANA Considerations
+   6.  Normative References
    Acknowledgments
    Author's Address
 
 1.  Introduction
 
-   TODO Introduction
+   A new field contentEncoding is proposed
+   (https://github.com/whatwg/fetch/pull/1796) to be added to
+   PerformanceResourceTiming (https://www.w3.org/TR/resource-timing/).
+   The value of this field explicitly exposes the content encoding value
+   in the http response that delivered the resource.  This value is
+   beneficial to web sites' and CDNs' content delivery optimization,
+   analytics and debugging.
 
-2.  Conventions and Definitions
+   To ensure that the contentEncoding in PerformanceResourceTiming
+   doesn't become a side channel, all arbitary values that are not
+   recognized or supported are converted to unknown before exposed in
+   PerformanceResourceTiming.  This conversion requires that the
+   original value cannot be unknown.
+
+2.  Proposal
+
+   Register a new reserved value unknown for HPPT parameter content
+   coding. content coding value cannot be unknown.
+
+3.  Conventions and Definitions
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
@@ -84,15 +103,18 @@ Table of Contents
    BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
    capitals, as shown here.
 
-3.  Security Considerations
+4.  Security Considerations
 
-   TODO Security
+   No security concerns.
 
-4.  IANA Considerations
+5.  IANA Considerations
 
-   This document has no IANA actions.
+   IANA maintains a HTTP Content Coding Registry
+   (https://www.iana.org/assignments/http-parameters/http-
+   parameters.xhtml).  If this proposal becomes a standard, a new
+   reserved value unknown will be added to the registry.
 
-5.  Normative References
+6.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -105,10 +127,12 @@ Table of Contents
 
 Acknowledgments
 
-   TODO acknowledge.
+   Many thanks to Noam Rosenthal, Yoav Weiss, Patrick Meenan, Anne van
+   Kesteren, Nic Jansma, and Lucas Pardue for the discussion and
+   guidance.
 
 Author's Address
 
-   Your Name Here
-   Your Organization Here
-   Email: your.email@example.com
+   Guohui Deng
+   Microsoft
+   Email: guohuideng@microsoft.com
