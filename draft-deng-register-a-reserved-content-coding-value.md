@@ -12,9 +12,8 @@ v: 3
 # area: AREA
 # workgroup: WG Working Group
 keyword:
- - next generation
- - unicorn
- - sparkling distributed ledger
+ - content coding
+ - unknown
 venue:
 #  group: WG
 #  type: Working Group
@@ -30,9 +29,6 @@ author:
     email: "guohuideng@microsoft.com"
 
 normative:
-
-informative:
-
 
 --- abstract
 
