@@ -4,8 +4,8 @@
 
 Network Working Group                                            G. Deng
 Internet-Draft                                                 Microsoft
-Intended status: Standards Track                           18 April 2025
-Expires: 20 October 2025
+Intended status: Standards Track                           21 April 2025
+Expires: 23 October 2025
 
 
               Register a new reserved content coding value
@@ -15,9 +15,9 @@ Abstract
 
    This document proposes a new reserved value unknown for the HTTP
    protocol parameter content coding.  With this value reserved, when
-   UA(user agent) doesn't recognize or suppoprt a content encoding value
-   from a http response, it exposes unknown content encoding value in
-   PerformanceResourceTiming API.
+   the UA(user agent) doesn't recognize or suppoprt a content encoding
+   value from a http response, it exposes content encoding value in
+   PerformanceResourceTiming API as unknown.
 
 About This Document
 
@@ -47,7 +47,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 20 October 2025.
+   This Internet-Draft will expire on 23 October 2025.
 
 Copyright Notice
 
@@ -79,10 +79,10 @@ Table of Contents
    A new field contentEncoding is proposed
    (https://github.com/whatwg/fetch/pull/1796) to be added to
    PerformanceResourceTiming (https://www.w3.org/TR/resource-timing/).
-   The value of this field explicitly exposes the content encoding value
-   in the http response that delivered the resource.  This value is
-   beneficial to web sites' and CDNs' content delivery optimization,
-   analytics and debugging.
+   This field explicitly exposes the content encoding value in the http
+   response that delivered the resource.  This value is beneficial to
+   web sites' and CDNs' content delivery optimization, analytics and
+   debugging.
 
    To ensure that the contentEncoding in PerformanceResourceTiming
    doesn't become a side channel, all arbitary values that are not
@@ -92,8 +92,8 @@ Table of Contents
 
 2.  Proposal
 
-   Register a new reserved value unknown for HPPT parameter content
-   coding. content coding value cannot be unknown.
+   Register a new reserved value unknown for the HPPT parameter content
+   coding.  A content coding value cannot be unknown.
 
 3.  Conventions and Definitions
 
@@ -127,9 +127,8 @@ Table of Contents
 
 Acknowledgments
 
-   Many thanks to Noam Rosenthal, Yoav Weiss, Patrick Meenan, Anne van
-   Kesteren, Nic Jansma, and Lucas Pardue for the discussion and
-   guidance.
+   Many thanks to Noam Rosenthal, Anne van Kesteren, Yoav Weiss, Patrick
+   Meenan, Nic Jansma, and Lucas Pardue for the discussion and guidance.
 
 Author's Address
 
