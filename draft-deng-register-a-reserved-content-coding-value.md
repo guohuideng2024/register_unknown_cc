@@ -37,9 +37,9 @@ informative:
 --- abstract
 
 This document proposes a new reserved value `unknown` for the HTTP protocol parameter
-`content coding`. With this value reserved, when UA(user agent) doesn't recognize
-or suppoprt a `content encoding` value from a http response, it exposes `unknown`
-`content encoding` value in `PerformanceResourceTiming` API.
+`content coding`. With this value reserved, when the UA(user agent) doesn't recognize
+or suppoprt a `content encoding` value from a http response, it exposes
+`content encoding` value in `PerformanceResourceTiming` API as `unknown`.
 
 --- middle
 
@@ -47,9 +47,9 @@ or suppoprt a `content encoding` value from a http response, it exposes `unknown
 
 A new field `contentEncoding` is [proposed](https://github.com/whatwg/fetch/pull/1796)
 to be added to [PerformanceResourceTiming](https://www.w3.org/TR/resource-timing/).
-The value of this field explicitly exposes the `content encoding` value in the http
-response that delivered the resource.  This value is beneficial to web sites' and
-CDNs' content delivery optimization, analytics and debugging.
+This field explicitly exposes the `content encoding` value in the http response that
+delivered the resource.  This value is beneficial to web sites' and CDNs' content
+delivery optimization, analytics and debugging.
 
 To ensure that the `contentEncoding` in `PerformanceResourceTiming` doesn't become a side
 channel, all arbitary values that are not recognized or supported are converted to
@@ -58,8 +58,8 @@ original value cannot be `unknown`.
 
 # Proposal
 
-Register a new reserved value `unknown` for HPPT parameter `content coding`. `content coding`
-value cannot be `unknown`.
+Register a new reserved value `unknown` for the HPPT parameter `content coding`.
+A `content coding` value cannot be `unknown`.
 
 # Conventions and Definitions
 
@@ -80,4 +80,5 @@ If this proposal becomes a standard, a new reserved value `unknown` will be adde
 # Acknowledgments
 {:numbered="false"}
 
-Many thanks to Noam Rosenthal, Yoav Weiss, Patrick Meenan, Anne van Kesteren, Nic Jansma, and Lucas Pardue for the discussion and guidance.
+Many thanks to Noam Rosenthal, Anne van Kesteren, Yoav Weiss, Patrick Meenan, Nic Jansma,
+and Lucas Pardue for the discussion and guidance.
