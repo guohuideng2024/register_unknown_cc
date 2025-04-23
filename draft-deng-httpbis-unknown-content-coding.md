@@ -4,10 +4,15 @@ title: "Register a new reserved content coding value"
 category: std
 
 docname: draft-deng-httpbis-unknown-content-coding-latest
+
 submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
+
 number:
+
 date:
+
 consensus: true
+
 v: 3
 # area: AREA
 # workgroup: WG Working Group
