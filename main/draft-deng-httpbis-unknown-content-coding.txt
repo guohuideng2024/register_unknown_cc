@@ -4,20 +4,17 @@
 
 Network Working Group                                            G. Deng
 Internet-Draft                                                 Microsoft
-Intended status: Standards Track                           21 April 2025
-Expires: 23 October 2025
+Intended status: Standards Track                           23 April 2025
+Expires: 25 October 2025
 
 
               Register a new reserved content coding value
-       draft-deng-register-a-reserved-content-coding-value-latest
+            draft-deng-httpbis-unknown-content-coding-latest
 
 Abstract
 
    This document proposes a new reserved value unknown for the HTTP
-   protocol parameter content coding.  With this value reserved, when
-   the UA(user agent) doesn't recognize or suppoprt a content encoding
-   value from a http response, it exposes content encoding value in
-   PerformanceResourceTiming API as unknown.
+   protocol parameter content coding.
 
 About This Document
 
@@ -27,7 +24,7 @@ About This Document
    https://guohuideng2024.github.io/register_unknown_cc/draft-deng-
    register-a-reserved-content-coding-value.html.  Status information
    for this document may be found at https://datatracker.ietf.org/doc/
-   draft-deng-register-a-reserved-content-coding-value/.
+   draft-deng-httpbis-unknown-content-coding/.
 
    Source for this draft and an issue tracker can be found at
    https://github.com/guohuideng2024/register_unknown_cc.
@@ -47,7 +44,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 23 October 2025.
+   This Internet-Draft will expire on 25 October 2025.
 
 Copyright Notice
 
@@ -65,37 +62,27 @@ Copyright Notice
 
 Table of Contents
 
-   1.  Introduction
-   2.  Proposal
-   3.  Conventions and Definitions
-   4.  Security Considerations
-   5.  IANA Considerations
-   6.  Normative References
+   1.  Rationale and proposal
+   2.  Conventions and Definitions
+   3.  Security Considerations
+   4.  IANA Considerations
+   5.  Normative References
    Acknowledgments
    Author's Address
 
-1.  Introduction
+1.  Rationale and proposal
 
-   A new field contentEncoding is proposed
-   (https://github.com/whatwg/fetch/pull/1796) to be added to
-   PerformanceResourceTiming (https://www.w3.org/TR/resource-timing/).
-   This field explicitly exposes the content encoding value in the http
-   response that delivered the resource.  This value is beneficial to
-   web sites' and CDNs' content delivery optimization, analytics and
-   debugging.
-
-   To ensure that the contentEncoding in PerformanceResourceTiming
-   doesn't become a side channel, all arbitary values that are not
-   recognized or supported are converted to unknown before exposed in
-   PerformanceResourceTiming.  This conversion requires that the
+   There is a need to convert (https://github.com/whatwg/fetch/
+   pull/1796) an arbitary content encoding value from a http response to
+   unknown, if the UA(user agent) doesn't recognize or support the
+   original content encoding value.  This conversion requires that the
    original value cannot be unknown.
 
-2.  Proposal
+   Therefore, this document proposes a new reserved value unknown for
+   the HTTP protocol parameter.  A content coding value cannot be
+   unknown.
 
-   Register a new reserved value unknown for the HPPT parameter content
-   coding.  A content coding value cannot be unknown.
-
-3.  Conventions and Definitions
+2.  Conventions and Definitions
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
@@ -103,18 +90,18 @@ Table of Contents
    BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
    capitals, as shown here.
 
-4.  Security Considerations
+3.  Security Considerations
 
    No security concerns.
 
-5.  IANA Considerations
+4.  IANA Considerations
 
    IANA maintains a HTTP Content Coding Registry
    (https://www.iana.org/assignments/http-parameters/http-
    parameters.xhtml).  If this proposal becomes a standard, a new
    reserved value unknown will be added to the registry.
 
-6.  Normative References
+5.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
